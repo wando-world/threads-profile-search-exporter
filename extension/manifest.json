@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Threads 검색 결과 수집기",
+  "version": "1.0.0",
+  "description": "현재 Threads 프로필 검색 결과를 끝까지 수집해 로컬 앱으로 전송합니다.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://www.threads.com/*", "http://localhost:5000/*", "http://127.0.0.1:5000/*"],
+  "action": {
+    "default_title": "Threads 결과 수집",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.threads.com/search*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
